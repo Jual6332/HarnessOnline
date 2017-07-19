@@ -1,0 +1,40 @@
+{
+  "env": "default",
+  "clientUrl": "/ibis-ui.sandbox",
+  "endpoints": {
+    "anomalyReport": {
+      "linkerdId": "anomaly-report-api.sandbox",
+      "reportsPath": ["api","v1","anomaly-reports"]
+    },
+    "linkerd": {
+      "hostname": "172.31.224.148",
+      "port": "4140",
+      "path": []
+    },
+    "mpe": {
+      "linkerdId": "mpe-api.1-1-0",
+      "scContactsPath": ["api","v1","contacts", "sc"]
+    },
+    "scid": {
+      "linkerdId": "scid-api.1-1-0",
+      "satellitePath": ["api","v1","satellites"]
+    },
+    "server": {
+      "protocol": "",
+      "hostname": "",
+      "path": ["server"],
+      "linkerdId": "ibis-ui.sandbox"
+    },
+    "ticketer": {
+      "linkerdId": "ticketer.1-2-0",
+      "issuesPath": ["api","v2","issues"]
+    },
+    "tlmSnapshot": {
+      "linkerdId": "tlm-snapshot-api.sandbox",
+      "latestPath": ["api","v1","latest"]
+    }
+  },
+  "server": {
+    "port": "3000"
+  }
+}

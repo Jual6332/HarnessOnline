@@ -1,0 +1,17 @@
+{
+  "name": "ibis-ui",
+  "script": "build/server/server.js",
+  "exec_mode": "fork",
+  "max_memory_restart": "200M",
+  "watch": false,
+  "watch_options": {
+    "followSymlinks": true,
+    "usePolling": true
+  },
+  "no-daemon": true,
+  "node_args": ["--harmony"],
+  "log_date_format": "YYYY-MM-DD HH:mm Z",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

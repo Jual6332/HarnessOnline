@@ -1,0 +1,24 @@
+{
+  "lines": 15,
+  "statements": 15,
+  "functions": 15,
+  "branches": 15,
+  "include": [
+    "src/**/*.js"
+  ],
+  "exclude": [
+    ".nyc_output",
+    "build",
+    "coverage",
+    "**/node_modules/**",
+    "webpack.config.js"
+  ],
+  "require": [
+    "babel-core/register"
+  ],
+  "cache": true,
+  "check-coverage": true,
+  "all": true,
+  "sourceMap": false,
+  "instrument": false
+}
