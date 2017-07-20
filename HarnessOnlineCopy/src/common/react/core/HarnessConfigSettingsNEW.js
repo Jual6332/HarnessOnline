@@ -1,4 +1,4 @@
-const HarnessConfigSettings = [
+const $HarnessConfigSettings = [
     { "value":"Yes", "units":"", "title":"Forecast", "description":"Perform contact scheduling off of most recently published contact schedule" },
     { "value":"25", "units":"hrs", "title":"ForecastMin", "description":"Minimum amount of time to allow from current time to forecast start" },
     { "value":"75", "units":"hrs", "title":"CshPeriod", "description":"Amount of time a new contact schedule should span" },
@@ -8,3 +8,7 @@ const HarnessConfigSettings = [
     { "value":"125", "units":"hrs", "title":"StatusPeriod", "description":"Number of hours from current time to retrieve unavailabilities" },
     { "value":"125", "units":"", "title":"MaxAttempts", "description":"Max number of times the Harness can re-attempt contact scheduling after rejection" }
 ];
+
+export {
+  $HarnessConfigSettings
+};

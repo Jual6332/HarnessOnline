@@ -12,6 +12,7 @@ import config from '../../config/config';
 import {get} from '../../utilities/fetch';
 import logger from '../../utilities/logger';
 import {$GreenDark, $WarningYellow} from '../core/Variables';
+import Parent from '../Home/Parent';
 
 const conf = config();
 const {endpoints} = conf;
@@ -91,7 +92,7 @@ class Home extends Component {
   }
 
   render () {
-    const {reports, resolvedTickets, unresolvedTickets, settings} = this.state;
+    const {reports, resolvedTickets, unresolvedTickets, settings, name} = this.state;
     const unResTickets = _.get(unresolvedTickets, 'issues', []);
     const resTickets = _.get(resolvedTickets, 'issues', []);
 
@@ -112,6 +113,7 @@ class Home extends Component {
           reports={settings.slice(0, 14)}
           totalNumber={settings.length}
         />
+        <Parent/>
         </Div>
       </div>
     );
