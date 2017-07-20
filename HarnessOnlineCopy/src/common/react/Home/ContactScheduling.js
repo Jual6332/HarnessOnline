@@ -11,7 +11,7 @@ const Div = styled.div`
   width: 99%;
 `;
 
-class ViewLogs extends Component {
+class ContactScheduling extends Component {
   constructor (props) {
     super(props);
 
@@ -40,4 +40,4 @@ class ViewLogs extends Component {
   }
 }
 
-export default ViewLogs;
+export default ContactScheduling;

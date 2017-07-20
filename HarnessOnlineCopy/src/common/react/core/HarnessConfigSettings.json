@@ -1,0 +1,10 @@
+{"configSettings":[
+    { "value":"Yes", "units":"", "title":"Forecast", "description":"Perform contact scheduling off of most recently published contact schedule" },
+    { "value":"25", "units":"hrs", "title":"ForecastMin", "description":"Minimum amount of time to allow from current time to forecast start" },
+    { "value":"75", "units":"hrs", "title":"CshPeriod", "description":"Amount of time a new contact schedule should span" },
+    { "value":"100", "units":"mins", "title":"CshLockout", "description":"Period of time from current time to lock out scheduling new contacts" },
+    { "value":"150", "units":"hrs", "title":"TpPeriod", "description":"Amount of time from current time to generate tasks in Pleniter" },
+    { "value":"75", "units":"hrs", "title":"VisPeriod", "description":"Amount of time from current time + contact lockout period by which visibilities are retrieved" },
+    { "value":"125", "units":"hrs", "title":"StatusPeriod", "description":"Number of hours from current time to retrieve unavailabilities" },
+    { "value":"125", "units":"", "title":"MaxAttempts", "description":"Max number of times the Harness can re-attempt contact scheduling after rejection" }
+]}

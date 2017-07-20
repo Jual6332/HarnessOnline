@@ -78,18 +78,23 @@ const Header = props => {
         >Home</ScLink>
         <ScLink
           to={{
-            pathname: '/settings',
-            state: {currentPage: location.pathname === '/settings'}
+            pathname: '/scheduling',
+            state: {currentPage: location.pathname === '/scheduling'}
           }}
-        >Configuration Settings</ScLink>
+        >Contact Scheduling</ScLink>
+        <ScLink
+          to={{
+            pathname: '/visibilities',
+            state: {currentPage: location.pathname === '/visibilities'}
+          }}
+        >Visibilities</ScLink>
         <ScLink
           to={{
             pathname: '/logs',
             state: {currentPage: location.pathname === '/logs'}
           }}
-        >View Logs</ScLink>
+        >Logs</ScLink>
       </Nav>
-      <SearchBar/>
     </div>
   );
 };

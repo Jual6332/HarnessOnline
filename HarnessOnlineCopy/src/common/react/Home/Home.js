@@ -95,7 +95,7 @@ class Home extends Component {
     const unResTickets = _.get(unresolvedTickets, 'issues', []);
     const resTickets = _.get(resolvedTickets, 'issues', []);
 
-    const harnessRunning = false;
+    const harnessRunning = true;
     const displayBanner = <HarnessStatusBar check={harnessRunning} status={harnessRunning ? "Harness is Running": "Harness is Stopped"}/>;
     const displayButton = <Toggle check={harnessRunning} title={harnessRunning ? "Stop Harness": "Start Harness"}/>;
 

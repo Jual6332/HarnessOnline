@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-import StatusBar from '../core/StatusBar';
 import FileChart from '../core/Svgs/FileChart';
 import Dots from '../core/Svgs/Dots';
 import Table from '../core/Table';
