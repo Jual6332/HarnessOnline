@@ -86,6 +86,7 @@ const TableWrap = styled.div`
   }
 
   td {
+
     &:nth-of-type(5)
       text-align: center;
     }
@@ -112,7 +113,7 @@ const ConfigSettingsTable = props => {
       <tr key={index}>
         <td>{rowData.title}</td>
         <td>{rowData.description}</td>
-        <td>{rowData.value}</td>
+        <td><input type="text" name="value" value={rowData.value}/></td>
         <td>{rowData.units}</td>
         <td><Dots/></td>
       </tr>
@@ -128,7 +129,6 @@ const ConfigSettingsTable = props => {
       <TableWrap>
         <Table
           headers={[
-            //{label: ''},
             {label: 'Name', key: 'title'},
             {label: 'Description'},
             {label: 'Value', key: 'timeCreated'},

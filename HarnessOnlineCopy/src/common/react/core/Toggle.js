@@ -36,7 +36,11 @@ class Toggle extends React.Component {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
     }));
-    alert("Harness is running!");
+    if (!this.props.check){
+      alert("Harness is running!");
+    }else{
+      alert("Harness is now stopped!");
+    }
   }
 
   render() {

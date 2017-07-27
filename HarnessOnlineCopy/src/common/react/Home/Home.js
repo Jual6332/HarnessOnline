@@ -7,7 +7,9 @@ import HarnessStatusBar from './HarnessStatusBar';
 import ConfigSettingsTable from '../Home/ConfigSettingsTable';
 import {$HarnessConfigSettings} from '../core/HarnessConfigSettings';
 import NotificationBar from '../core/NotificationBar';
+
 import Toggle from '../core/Toggle';
+import CheckCircle from '../core/Svgs/CheckCircle';
 import config from '../../config/config';
 import {get} from '../../utilities/fetch';
 import logger from '../../utilities/logger';
@@ -25,6 +27,16 @@ const Div = styled.div`
   text-align: center;
   margin-right: 1%;
   width: 99%;
+`;
+
+const ChecksBar = styled.div`
+  svg {
+    vertical-align: top;
+    margin-right: 55px;
+    fill: ${$GreenDark};
+    height: 35px;
+    width: 35px;
+  }
 `;
 
 class Home extends Component {
@@ -99,21 +111,21 @@ class Home extends Component {
     const harnessRunning = true;
     const displayBanner = <HarnessStatusBar check={harnessRunning} status={harnessRunning ? "Harness is Running": "Harness is Stopped"}/>;
     const displayButton = <Toggle check={harnessRunning} title={harnessRunning ? "Stop Harness": "Start Harness"}/>;
+    const displayTable = <ConfigSettingsTable reports={settings.slice(0, 14)} totalNumber={settings.length} />;
+
+    const displayDropDown = <Parent/>;
+    const displayStatusChecks = <StatusChecksTable reports={reports.slice(0, 14)} totalNumber={reports.length}/>;
 
     return (
       <div>
         <Div>
           {displayBanner}
           {displayButton}
-          <StatusChecksTable
-            reports={reports.slice(0, 14)}
-            totalNumber={reports.length}
-          />
-        <ConfigSettingsTable
-          reports={settings.slice(0, 14)}
-          totalNumber={settings.length}
-        />
-        <Parent/>
+          <ChecksBar> 
+            <CheckCircle/> 
+          </ChecksBar>
+          {displayTable}
+          {displayDropDown}
         </Div>
       </div>
     );
