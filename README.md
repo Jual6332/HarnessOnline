@@ -13,9 +13,9 @@ From within the repository folder, install project dependencies:
 ```javascript
 npm install
 ```
-After installation, run the program stack via
+After installation, run the program locally via
 ```javascript
-npm start
+CLIENT_URL= npm start
 ```
 
 ## Acknowledgements
