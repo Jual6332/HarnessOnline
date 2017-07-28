@@ -8,6 +8,7 @@ import ConfigSettingsTable from '../Home/ConfigSettingsTable';
 import {$HarnessConfigSettings} from '../core/HarnessConfigSettings';
 import NotificationBar from '../core/NotificationBar';
 
+import TabbedTable from '../core/TabbedTable';
 import Toggle from '../core/Toggle';
 import CheckCircle from '../core/Svgs/CheckCircle';
 import config from '../../config/config';
@@ -37,6 +38,10 @@ const ChecksBar = styled.div`
     height: 35px;
     width: 35px;
   }
+`;
+
+const TableContainer = styled.div`
+  padding: 10px;
 `;
 
 class Home extends Component {
@@ -120,12 +125,16 @@ class Home extends Component {
       <div>
         <Div>
           {displayBanner}
-          {displayButton}
-          <ChecksBar> 
-            <CheckCircle/> 
-          </ChecksBar>
+        </Div>
+
+        <Div>
+          <TabbedTable/>
+        </Div>
+
+        <Div>
           {displayTable}
           {displayDropDown}
+          {displayButton}
         </Div>
       </div>
     );
