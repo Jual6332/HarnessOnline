@@ -35,6 +35,8 @@ const TabContent = styled.div`
   padding: 12px;
   border: 1px solid #ccc;
   border-top: none;
+  font-size: 18px;
+  font-weight; 500;
 
   -webkit-animation: fadeEffect 1s;
   animation: fadeEffect 1s;
@@ -52,31 +54,53 @@ const TabContent = styled.div`
 
 const TabbedTable = React.createClass({
   getInitialState: function(){
-    return { showResults: false };
+    return { 
+      showResultsOverview: false,
+      showResultsCS: false,
+      showResultsSC: false
+    };
   },
-  onClick: function(){
-    this.setState({ showResults: true });
+  onClickOverview: function(){
+    this.setState({ showResultsOverview: true, showResultsCS: false, showResultsSC: false });
+  },
+  onClickCS: function(){
+    this.setState({ showResultsOverview: false, showResultsCS: true, showResultsSC: false });
   },
   render: function() {
     return (
       <div>
         <Tab>
-          <TabButton onClick={this.onClick}>London</TabButton>
-          <TabButton onClick={this.onClick}>Paris</TabButton>
-          <TabButton onClick={this.onClick}>Tokyo</TabButton>
+          <TabButton onClick={this.onClickOverview}>Overview</TabButton>
+          <TabButton onClick={this.onClickCS}>Contact Scheduling Checkpoints</TabButton>
+          <TabButton onClick={this.onClickOverview}>Spacecraft Checkpoints</TabButton>
         </Tab>
-        { this.state.showResults ? <Results/> : null}
+        { this.state.showResultsOverview ? <OverviewResults/> : null}
+        { this.state.showResultsCS ? <CSResults/> : null}
       </div>
     );
   }
 });
 
-var Results = React.createClass({
+var OverviewResults = React.createClass({
   render: function(){
     return(
       <TabContent>
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
+        <h3>Visibilities Requested</h3>
+        <p>Current Status ... </p>
+        <h3>Contact Scheduling</h3>
+        <p>Current Status ... </p>
+        <h3>Spacecraft Scheduling</h3>
+        <p>Current Status ... </p>
+      </TabContent>
+    );
+  }
+});
+
+var CSResults = React.createClass({
+  render: function(){
+    return(
+      <TabContent>
+        <h3>Contact Scheduling Checkpoints</h3>
       </TabContent>
     );
   }

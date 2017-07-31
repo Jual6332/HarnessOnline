@@ -133,8 +133,6 @@ class Home extends Component {
 
         <Div>
           {displayTable}
-          {displayDropDown}
-          {displayButton}
         </Div>
       </div>
     );
