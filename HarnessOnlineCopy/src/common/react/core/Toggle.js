@@ -38,6 +38,18 @@ class Toggle extends React.Component {
     }));
     if (!this.props.check){
       alert("Harness is running!");
+      fetch('http://172.31.224.143:45000/Initiate', {
+        method: 'POST',
+        body: "Start Planning"
+      })
+        .then(response => {
+          console.log('response');
+          console.log(response);
+        })
+        .catch(error => {
+          console.log('err')
+          console.log(error)
+        })
     }else{
       alert("Harness is now stopped!");
     }

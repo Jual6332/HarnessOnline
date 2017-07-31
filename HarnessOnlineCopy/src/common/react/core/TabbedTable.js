@@ -1,6 +1,8 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 import styled from 'styled-components';
+import Alert from '../core/Svgs/Alert';
 import {$GreenDark, $SecondaryColor, $WarningYellow} from './Variables';
 
 const Tab = styled.div`
@@ -29,6 +31,10 @@ const TabButton = styled.div`
   &:hover {
     background-color: #ddd;
   }
+
+  active {
+    background-color: #ddd;
+  }
 `;
 
 const TabContent = styled.div`
@@ -50,6 +56,14 @@ const TabContent = styled.div`
     from {opacity: 0;}
     to {opacity: 1;}
   }
+
+  svg {
+    vertical-align: top;
+    margin-right: 5px;
+    fill: ${$SecondaryColor};
+    height: 25px;
+    width: 25px;
+  }
 `;
 
 const TabbedTable = React.createClass({
@@ -66,16 +80,20 @@ const TabbedTable = React.createClass({
   onClickCS: function(){
     this.setState({ showResultsOverview: false, showResultsCS: true, showResultsSC: false });
   },
+  onClickSC: function(){
+    this.setState({ showResultsOverview: false, showResultsCS: false, showResultsSC: true });
+  },
   render: function() {
     return (
       <div>
         <Tab>
           <TabButton onClick={this.onClickOverview}>Overview</TabButton>
           <TabButton onClick={this.onClickCS}>Contact Scheduling Checkpoints</TabButton>
-          <TabButton onClick={this.onClickOverview}>Spacecraft Checkpoints</TabButton>
+          <TabButton onClick={this.onClickSC}>Spacecraft Scheduling Checkpoints</TabButton>
         </Tab>
-        { this.state.showResultsOverview ? <OverviewResults/> : null}
-        { this.state.showResultsCS ? <CSResults/> : null}
+        { this.state.showResultsOverview ? <OverviewResults/> : null }
+        { this.state.showResultsCS ? <CSResults/> : null }
+        { this.state.showResultsSC ? <SCResults/> : null }
       </div>
     );
   }
@@ -85,12 +103,10 @@ var OverviewResults = React.createClass({
   render: function(){
     return(
       <TabContent>
-        <h3>Visibilities Requested</h3>
-        <p>Current Status ... </p>
-        <h3>Contact Scheduling</h3>
-        <p>Current Status ... </p>
-        <h3>Spacecraft Scheduling</h3>
-        <p>Current Status ... </p>
+        <h2>Overview Scheduling Checkpoints</h2>
+        <p>Visibilities Requested: Checking Status ...</p>
+        <p>Contact Scheduling: Checking Status ...</p>
+        <p>Spacecraft Scheduling: Checking Status ...</p>
       </TabContent>
     );
   }
@@ -101,6 +117,16 @@ var CSResults = React.createClass({
     return(
       <TabContent>
         <h3>Contact Scheduling Checkpoints</h3>
+      </TabContent>
+    );
+  }
+});
+
+var SCResults = React.createClass({
+  render: function(){
+    return(
+      <TabContent>
+        <h3>Spacecraft Scheduling Checkpoints</h3>
       </TabContent>
     );
   }

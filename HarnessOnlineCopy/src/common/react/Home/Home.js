@@ -113,7 +113,7 @@ class Home extends Component {
     const unResTickets = _.get(unresolvedTickets, 'issues', []);
     const resTickets = _.get(resolvedTickets, 'issues', []);
 
-    const harnessRunning = true;
+    const harnessRunning = false;
     const displayBanner = <HarnessStatusBar check={harnessRunning} status={harnessRunning ? "Harness is Running": "Harness is Stopped"}/>;
     const displayButton = <Toggle check={harnessRunning} title={harnessRunning ? "Stop Harness": "Start Harness"}/>;
     const displayTable = <ConfigSettingsTable reports={settings.slice(0, 14)} totalNumber={settings.length} />;
@@ -133,6 +133,7 @@ class Home extends Component {
 
         <Div>
           {displayTable}
+          {displayButton}
         </Div>
       </div>
     );
