@@ -13,12 +13,17 @@ From within the repository folder, install project dependencies:
 ```javascript
 npm install
 ```
-After installation, run the program locally via
+For **local development**, run the program vi
+```javascript
+npm run dev
+```
+For **prodcut deployment** run the program via
 ```javascript
 CLIENT_URL= npm start
 ```
 
 ## Acknowledgements
-- **Romello Goodman**, OneWeb
+- **Hank Tseu**, OneWeb
 - **JP Chavez**, OneWeb
+- **Romello Goodman**, OneWeb
 - **Zach Meza**, Oneweb
