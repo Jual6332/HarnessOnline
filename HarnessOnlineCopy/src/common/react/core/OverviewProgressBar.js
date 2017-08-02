@@ -20,7 +20,7 @@ class OverviewProgressBar extends React.Component {
   
   render() { 
     return ( 
-	  <ProgressBarChild currentValue={this.state.width} onChange={this.handleChange}/>
+	  <ProgressBarChild tabindex={this.props.tabindex} currentValue={this.state.width} onChange={this.handleChange}/>
     ); 
   } 
 }

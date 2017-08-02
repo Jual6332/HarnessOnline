@@ -9,6 +9,8 @@ const MyProgress = styled.div`
 `;
 
 const MyBar = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 30%;
 
   ${props => props.width && `width: ${props.width}%;`}
@@ -25,7 +27,6 @@ const MyBar = styled.div`
 `;
 
 const Button = styled.button`
-  margin-top: 10px;
   text-align: center;
   height: 35px;
   width: 10%;
@@ -45,7 +46,11 @@ class ProgressBarChild extends React.Component {
 	}
   
   onClick(){
-    const newValue = this.props.currentValue+35;
+    let newValue = 0;
+    if (this.props.tabindex === 0){
+      newValue = this.props.currentValue+35;
+    }
+    
     if (newValue <= 100){
       this.props.onChange(newValue);
     }

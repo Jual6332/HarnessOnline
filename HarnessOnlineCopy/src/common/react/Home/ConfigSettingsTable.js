@@ -135,16 +135,6 @@ const ConfigSettingsTable = props => {
     );
   };
 
-  const rowEditSettings = (rowData, index) => {
-    return (
-      <div>
-        <h2>Words</h2>
-      </div>
-    );
-  };
-
-  console.log('ConfigSettingsTable', reports)
-
   return (
     <div>
       <Div>
@@ -170,13 +160,13 @@ const ConfigSettingsTable = props => {
         <Spacing></Spacing>
         <Spacing></Spacing>
         <EditDotsParent updateSettings={updateSettings} index={0} setting={reports[0].value}/>
-        <EditDotsParent setting={reports[1].value}/>
-        <EditDotsParent setting={reports[2].value}/>
-        <EditDotsParent setting={reports[3].value}/>
-        <EditDotsParent setting={reports[4].value}/>
-        <EditDotsParent setting={reports[5].value}/>
-        <EditDotsParent setting={reports[6].value}/>
-        <EditDotsParent setting={reports[7].value}/>
+        <EditDotsParent updateSettings={updateSettings} index={1} setting={reports[1].value}/>
+        <EditDotsParent updateSettings={updateSettings} index={2} setting={reports[2].value}/>
+        <EditDotsParent updateSettings={updateSettings} index={3} setting={reports[3].value}/>
+        <EditDotsParent updateSettings={updateSettings} index={4} setting={reports[4].value}/>
+        <EditDotsParent updateSettings={updateSettings} index={5} setting={reports[5].value}/>
+        <EditDotsParent updateSettings={updateSettings} index={6} setting={reports[6].value}/>
+        <EditDotsParent updateSettings={updateSettings} index={7} setting={reports[7].value}/>
       </Div2>
     </div>
   );
@@ -198,4 +188,4 @@ const mapDispatchToProps = dispatch => {
 
 const ConnectedConfigSettingsTable = connect(null, mapDispatchToProps)(ConfigSettingsTable);
 
-export default ConnectedConfigSettingsTable;
+export default ConfigSettingsTable;

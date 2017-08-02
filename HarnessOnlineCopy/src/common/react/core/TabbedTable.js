@@ -109,6 +109,7 @@ var OverviewResults = React.createClass({
         <p>Visibilities Requested: Checking Status ...</p>
         <p>Contact Scheduling: Checking Status ...</p>
         <p>Spacecraft Scheduling: Checking Status ...</p>
+        <OverviewProgressBar tabindex={0} startValue={30} />
       </TabContent>
     );
   }
@@ -119,7 +120,7 @@ var CSResults = React.createClass({
     return(
       <TabContent>
         <h3>Contact Scheduling Checkpoints</h3>
-        <OverviewProgressBar startValue={30} />
+        <OverviewProgressBar tabindex={1} startValue={12.5} />
       </TabContent>
     );
   }
@@ -130,6 +131,7 @@ var SCResults = React.createClass({
     return(
       <TabContent>
         <h3>Spacecraft Scheduling Checkpoints</h3>
+        <OverviewProgressBar tabindex={2} startValue={20} />
       </TabContent>
     );
   }

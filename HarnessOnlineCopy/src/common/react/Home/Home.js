@@ -91,16 +91,11 @@ class Home extends Component {
 
   updateSettings(i, newName){
     const newreports = this.state.reports;
-
-    console.log(newName);
-    console.log(i);
-
     newreports[i].value = newName;
 
     this.setState({
       reports: newreports
     });
-
   }
 
   componentDidMount () {
