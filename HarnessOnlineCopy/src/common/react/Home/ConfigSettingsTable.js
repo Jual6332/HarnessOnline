@@ -6,9 +6,10 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-import StatusBar from '../core/StatusBar';
 import Check from '../core/Svgs/Check';
 import Dots from '../core/Svgs/Dots';
+import EditDotsParent from './EditDotsParent';
+import StatusBar from '../core/StatusBar';
 import Table from '../core/Table';
 import {$GreyLight, $SecondaryColor} from '../core/Variables';
 import {openModal} from '../../redux/App';
@@ -17,12 +18,24 @@ import {MODAL_ANOMREPORT} from '../../utilities/constants';
 const Div = styled.div`
   box-sizing: border-box;
   display: inline-block;
-  padding: 10px;
-  width: 100%;
+  padding: 5px;
+  width: 95%;
   margin-right: 1%;
   margin-bottom: 15px;
   border: 2px solid ${$GreyLight};
   text-align: left;
+  float: left;
+`;
+
+const Div2 = styled.div`
+  box-sizing: border-box;
+  display: inline-block;
+  padding-top: 15px;
+  width: 3%;
+  margin-right: 1%;
+  margin-bottom: 15px;
+  text-align: left;
+  float: right;
 `;
 
 const Header = styled.div`
@@ -60,6 +73,10 @@ const Links = styled.div`
       margin-left: none;
     }
   }
+`;
+
+const Spacing = styled.div`
+  height: 29px;
 `;
 
 const TableWrap = styled.div`
@@ -104,42 +121,56 @@ const TableWrap = styled.div`
 `;
 
 const ConfigSettingsTable = props => {
-  const {handleModalOpen, reports, totalNumber} = props;
+  const {handleModalOpen, reports, totalNumber, updateSettings} = props;
 
   // eslint-disable-next-line react/no-multi-comp
   const rowRender = (rowData, index) => {
-
     return (
-      <tr key={index}>
-        <td>{rowData.title}</td>
-        <td>{rowData.description}</td>
-        <td><input type="text" name="value" value={rowData.value}/></td>
-        <td>{rowData.units}</td>
-        <td><Dots/></td>
-      </tr>
+      <div>
+        <tr key={index}>
+          <td>{rowData.title}</td>
+          <td>{rowData.description}</td>
+          <td>{rowData.value}</td>
+          <td>{rowData.units}</td>
+        </tr>
+      </div>
     );
   };
 
   return (
-    <Div>
-      <Header>
-        <Check/>
-        <Label>Configuration Settings ({totalNumber})</Label>
-      </Header>
-      <TableWrap>
-        <Table
-          headers={[
-            {label: 'Name', key: 'title'},
-            {label: 'Description'},
-            {label: 'Value', key: 'timeCreated'},
-            {label: 'Units', key: 'status'},
-            {label: ''}
-          ]}
-          rowData={reports}
-          rowRender={rowRender}
-        />
-      </TableWrap>
-    </Div>
+    <div>
+      <Div>
+        <Header>
+          <Check/>
+          <Label>Configuration Settings ({totalNumber})</Label>
+        </Header>
+        <TableWrap>
+          <Table
+            headers={[
+              {label: 'Name', key: 'title'},
+              {label: 'Description'},
+              {label: 'Value', key: 'timeCreated'},
+              {label: 'Units', key: 'status'},
+              {label: ''}
+            ]}
+            rowData={reports}
+            rowRender={rowRender}
+          />
+        </TableWrap>
+      </Div>
+      <Div2>
+        <Spacing></Spacing>
+        <Spacing></Spacing>
+        <EditDotsParent updateSettings={updateSettings} index={0} setting={reports[0].value}/>
+        <EditDotsParent setting={reports[1].value}/>
+        <EditDotsParent setting={reports[2].value}/>
+        <EditDotsParent setting={reports[3].value}/>
+        <EditDotsParent setting={reports[4].value}/>
+        <EditDotsParent setting={reports[5].value}/>
+        <EditDotsParent setting={reports[6].value}/>
+        <EditDotsParent setting={reports[7].value}/>
+      </Div2>
+    </div>
   );
 };
 

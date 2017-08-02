@@ -15,6 +15,7 @@ import config from '../../config/config';
 import {get} from '../../utilities/fetch';
 import logger from '../../utilities/logger';
 import {$GreenDark, $WarningYellow} from '../core/Variables';
+import EditDotsParent from '../Home/EditDotsParent';
 import Parent from '../Home/Parent';
 
 const conf = config();
@@ -49,10 +50,11 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      reports: [],
       resolvedTickets: [],
       unresolvedTickets: [],
-      settings: $HarnessConfigSettings
+      settings: $HarnessConfigSettings,
+      reports: $HarnessConfigSettings.slice(0,14),
+      harnessRunning: true
     };
 
     this.endpoints = [
@@ -84,6 +86,14 @@ class Home extends Component {
         dataLocation: 'resolvedTickets'
       }
     ];
+    this.updateSettings = this.updateSettings.bind(this);
+  }
+
+  updateSettings(i, newName){
+    this.setState({
+      reports: [newName]
+    });
+    alert("Setting updated:"+ newName);
   }
 
   componentDidMount () {
@@ -109,22 +119,21 @@ class Home extends Component {
   }
 
   render () {
-    const {reports, resolvedTickets, unresolvedTickets, settings, name} = this.state;
+    const {resolvedTickets, unresolvedTickets, settings, reports, harnessRunning} = this.state;
     const unResTickets = _.get(unresolvedTickets, 'issues', []);
     const resTickets = _.get(resolvedTickets, 'issues', []);
 
-    const harnessRunning = false;
     const displayBanner = <HarnessStatusBar check={harnessRunning} status={harnessRunning ? "Harness is Running": "Harness is Stopped"}/>;
     const displayButton = <Toggle check={harnessRunning} title={harnessRunning ? "Stop Harness": "Start Harness"}/>;
-    const displayTable = <ConfigSettingsTable reports={settings.slice(0, 14)} totalNumber={settings.length} />;
+    const displayTable = <ConfigSettingsTable updateSettings={this.updateSettings} reports={reports} totalNumber={settings.length} />;
 
     const displayDropDown = <Parent/>;
-    const displayStatusChecks = <StatusChecksTable reports={reports.slice(0, 14)} totalNumber={reports.length}/>;
+    const displayStatusChecks = <StatusChecksTable reports={reports} totalNumber={reports.length}/>;
 
     return (
       <div>
         <Div>
-          {displayBanner}
+          {displayButton}
         </Div>
 
         <Div>
@@ -133,7 +142,6 @@ class Home extends Component {
 
         <Div>
           {displayTable}
-          {displayButton}
         </Div>
       </div>
     );

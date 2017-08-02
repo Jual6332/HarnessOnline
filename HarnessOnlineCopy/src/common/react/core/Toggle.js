@@ -2,10 +2,10 @@ import React from 'react';
 
 import styled from 'styled-components';
 import {$GreenDark, $WarningYellow} from './Variables';
+import HarnessStatusBar from '../Home/HarnessStatusBar';
 
 const ButtonStart = styled.button`
-  background: ${$GreenDark}
-  padding: 20px;
+  padding: 20px
   text-align: center;
   width: 7.5%;
   margin-bottom: 25px;
@@ -13,7 +13,7 @@ const ButtonStart = styled.button`
 `;
 
 const ButtonStop = styled.button`
-  background: ${$WarningYellow}
+  background-color: ${$WarningYellow};
   padding: 20px;
   text-align: center;
   width: 7.5%;
@@ -25,7 +25,8 @@ class Toggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isToggleOn: true
+      harnessRunning: true,
+      message: this.props.title
     };
 
     // This binding is necessary to make `this` work in the callback
@@ -38,6 +39,8 @@ class Toggle extends React.Component {
     }));
     if (!this.props.check){
       alert("Harness is running!");
+      this.setState({harnessRunning: true, message: "Stop Harness"}) 
+
       fetch('http://172.31.224.143:45000/Initiate', {
         method: 'POST',
         body: "Start Planning"
@@ -49,25 +52,36 @@ class Toggle extends React.Component {
         .catch(error => {
           console.log('err')
           console.log(error)
-        })
+      });
+
+        const displayBanner = <HarnessStatusBar check={this.state.harnessRunning} status={this.state.harnessRunning ? "Harness is Running": "Harness is Stopped"}/>;
+    
     }else{
-      alert("Harness is now stopped!");
+      alert("Harness is stopped!");
+      this.setState({harnessRunning: false, message: "Start Harness"}) 
     }
   }
 
   render() {
+    let displayBanner = <HarnessStatusBar check={this.state.harnessRunning} status={this.state.harnessRunning ? "Harness is Running": "Harness is Stopped"}/>;
     let decision = this.props.check;
     if(decision){
       return (
-        <ButtonStart title={this.props.title} onClick={this.handleClick}>
-          {this.props.title}
-        </ButtonStart>
+        <div>
+          {displayBanner}
+          <ButtonStart title={this.state.message} onClick={this.handleClick}>
+            {this.state.message}
+          </ButtonStart>
+        </div>
       );
     }else{
       return (
-        <ButtonStop title={this.props.title} onClick={this.handleClick}>
-          {this.props.title}
-        </ButtonStop>
+        <div>
+          {displayBanner}
+          <ButtonStop title={this.state.message} onClick={this.handleClick}>
+            {this.state.message}
+          </ButtonStop>
+        </div>
       );
     }
   }

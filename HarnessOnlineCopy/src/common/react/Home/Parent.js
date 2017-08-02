@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Child from '../Home/Child';
+import EditDots from '../core/EditDots';
 
 class Parent extends React.Component{
 	constructor(props) {
@@ -17,7 +18,12 @@ class Parent extends React.Component{
   	}
 
   	render() {
-    	return <Child name={this.state.name} onChange={this.changeName} />
+    	return (
+    	  <div>
+    		<Child name={this.state.name} onChange={this.changeName} />
+    		<EditDots onChange={this.changeName} />
+    	  </div>
+    	);
   	}
 }
 
