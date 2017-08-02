@@ -6,6 +6,7 @@ Full-stack javascript web application for monitoring the Harness software (MPH).
 ## Prerequisites
 The following are needed to run the Harness GUI software
 - React
+- Redux
 - More to come ...
 
 ## Running the Code
