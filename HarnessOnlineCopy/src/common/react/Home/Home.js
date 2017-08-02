@@ -91,7 +91,7 @@ class Home extends Component {
 
   updateSettings(i, newName){
     this.setState({
-      reports: [newName]
+      reports: []
     });
     alert("Setting updated:"+ newName);
   }
@@ -125,10 +125,10 @@ class Home extends Component {
 
     const displayBanner = <HarnessStatusBar check={harnessRunning} status={harnessRunning ? "Harness is Running": "Harness is Stopped"}/>;
     const displayButton = <Toggle check={harnessRunning} title={harnessRunning ? "Stop Harness": "Start Harness"}/>;
-    const displayTable = <ConfigSettingsTable updateSettings={this.updateSettings} reports={reports} totalNumber={settings.length} />;
+    const displayTable = <ConfigSettingsTable updateSettings={this.updateSettings} reports={this.state.reports} totalNumber={settings.length} />;
 
     const displayDropDown = <Parent/>;
-    const displayStatusChecks = <StatusChecksTable reports={reports} totalNumber={reports.length}/>;
+    const displayStatusChecks = <StatusChecksTable reports={this.state.reports} totalNumber={reports.length}/>;
 
     return (
       <div>

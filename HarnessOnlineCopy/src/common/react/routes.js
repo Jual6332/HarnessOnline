@@ -5,7 +5,7 @@ import {Route, Switch} from 'react-router-dom';
 import AnomReports from './AnomReports/AnomReports';
 import EditSettings from './Home/EditSettings';
 import ViewLogs from './Home/ViewLogs';
-import ContactScheduling from './Home/ContactScheduling';
+import ContactSchedule from './Home/ContactScheduling';
 import ErrorPage from './Error';
 import Home from './Home/Home';
 import Procedures from './Procedures/Procedures';
@@ -33,7 +33,7 @@ const routesConfig = [
   {
     path: '/scheduling',
     exact: true,
-    component: ContactScheduling
+    component: ContactSchedule
   },
   {
     path: '/visibilities',

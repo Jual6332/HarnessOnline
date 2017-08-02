@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 
 import styled from 'styled-components';
 import Alert from '../core/Svgs/Alert';
+import OverviewProgressBar from '../core/OverviewProgressBar';
 import {$GreenDark, $SecondaryColor, $WarningYellow} from './Variables';
 
 const Tab = styled.div`
@@ -43,6 +44,7 @@ const TabContent = styled.div`
   border-top: none;
   font-size: 18px;
   font-weight; 500;
+  overflow: hidden;
 
   -webkit-animation: fadeEffect 1s;
   animation: fadeEffect 1s;
@@ -117,6 +119,7 @@ var CSResults = React.createClass({
     return(
       <TabContent>
         <h3>Contact Scheduling Checkpoints</h3>
+        <OverviewProgressBar startValue={30} />
       </TabContent>
     );
   }

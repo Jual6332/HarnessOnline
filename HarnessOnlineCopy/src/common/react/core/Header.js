@@ -81,7 +81,7 @@ const Header = props => {
             pathname: '/scheduling',
             state: {currentPage: location.pathname === '/scheduling'}
           }}
-        >Contact Scheduling</ScLink>
+        >Contact Schedule</ScLink>
         <ScLink
           to={{
             pathname: '/visibilities',
