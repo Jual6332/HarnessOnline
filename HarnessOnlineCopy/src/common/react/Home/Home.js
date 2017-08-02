@@ -90,10 +90,17 @@ class Home extends Component {
   }
 
   updateSettings(i, newName){
+    const newreports = this.state.reports;
+
+    console.log(newName);
+    console.log(i);
+
+    newreports[i].value = newName;
+
     this.setState({
-      reports: []
+      reports: newreports
     });
-    alert("Setting updated:"+ newName);
+
   }
 
   componentDidMount () {
@@ -125,10 +132,11 @@ class Home extends Component {
 
     const displayBanner = <HarnessStatusBar check={harnessRunning} status={harnessRunning ? "Harness is Running": "Harness is Stopped"}/>;
     const displayButton = <Toggle check={harnessRunning} title={harnessRunning ? "Stop Harness": "Start Harness"}/>;
-    const displayTable = <ConfigSettingsTable updateSettings={this.updateSettings} reports={this.state.reports} totalNumber={settings.length} />;
+    const displayTable = <ConfigSettingsTable updateSettings={this.updateSettings} reports={reports} totalNumber={settings.length} />;
+    console.log('home', reports)
 
     const displayDropDown = <Parent/>;
-    const displayStatusChecks = <StatusChecksTable reports={this.state.reports} totalNumber={reports.length}/>;
+    const displayStatusChecks = <StatusChecksTable reports={reports} totalNumber={reports.length}/>;
 
     return (
       <div>

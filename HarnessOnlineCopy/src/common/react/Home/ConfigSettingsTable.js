@@ -126,16 +126,24 @@ const ConfigSettingsTable = props => {
   // eslint-disable-next-line react/no-multi-comp
   const rowRender = (rowData, index) => {
     return (
+      <tr key={index}>
+        <td>{rowData.title}</td>
+        <td>{rowData.description}</td>
+        <td>{rowData.value}</td>
+        <td>{rowData.units}</td>
+      </tr>
+    );
+  };
+
+  const rowEditSettings = (rowData, index) => {
+    return (
       <div>
-        <tr key={index}>
-          <td>{rowData.title}</td>
-          <td>{rowData.description}</td>
-          <td>{rowData.value}</td>
-          <td>{rowData.units}</td>
-        </tr>
+        <h2>Words</h2>
       </div>
     );
   };
+
+  console.log('ConfigSettingsTable', reports)
 
   return (
     <div>

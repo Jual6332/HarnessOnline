@@ -10,6 +10,13 @@ const MyProgress = styled.div`
 
 const MyBar = styled.div`
   width: 30%;
+
+  ${props => props.width && `width: ${props.width}%;`}
+
+  ${props  => {
+    console.log(props);
+  }}
+
   height: 30px;
   background-color: #4CAF50;
   text-align: center; 
@@ -49,7 +56,7 @@ class ProgressBarChild extends React.Component {
     return ( 
       <div>
         <MyProgress>
-          <MyBar>{this.props.currentValue}</MyBar>
+          <MyBar width={this.props.currentValue}>{this.props.currentValue}</MyBar>
           <Button onClick={this.onClick}>Update Progress Bar</Button>
         </MyProgress>
       </div>
