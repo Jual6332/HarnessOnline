@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 
 import styled from 'styled-components';
 import Alert from '../core/Svgs/Alert';
+import CheckpointingLoaderParent from '../core/CheckpointingLoaderParent';
 import OverviewProgressBar from '../core/OverviewProgressBar';
 import {$GreenDark, $SecondaryColor, $WarningYellow} from './Variables';
 
@@ -120,7 +121,8 @@ var CSResults = React.createClass({
     return(
       <TabContent>
         <h3>Contact Scheduling Checkpoints</h3>
-        <OverviewProgressBar tabindex={1} startValue={12.5} />
+        <OverviewProgressBar tabindex={1} startValue={12.5}/>
+        <CheckpointingLoaderParent/>
       </TabContent>
     );
   }
