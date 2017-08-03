@@ -47,8 +47,18 @@ class ProgressBarChild extends React.Component {
   
   onClick(){
     let newValue = 0;
-    if (this.props.tabindex === 0){
-      newValue = this.props.currentValue+35;
+    switch(this.props.tabindex){
+      case 0:
+        newValue = this.props.currentValue + 35;
+        break;
+      case 1:
+        newValue = this.props.currentValue + 12.5;
+        break;
+      case 2:
+        newValue = this.props.currentValue + 20;
+        break
+      default:
+        newValue = this.props.currentValue + 10;
     }
     
     if (newValue <= 100){
