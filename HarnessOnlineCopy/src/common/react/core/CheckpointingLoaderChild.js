@@ -34,9 +34,7 @@ class CheckpointingLoaderChild extends React.Component{
     return ( 
 	  <Progress>
 	  	<ul>
-		  	<ListItem>1</ListItem>
-		  	<ListItem>2</ListItem>
-		  	<ListItem>3</ListItem>
+		  	
 		</ul>
 	  </Progress>
     ); 
